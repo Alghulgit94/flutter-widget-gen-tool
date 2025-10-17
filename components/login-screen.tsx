@@ -7,10 +7,11 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Sparkles, Mail, Lock } from "lucide-react"
+import { Sparkles, Mail, Lock, BookOpen } from "lucide-react"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import type { Language } from "@/lib/i18n"
 import { useToast } from "@/hooks/use-toast"
+import Link from "next/link"
 
 interface LoginScreenProps {
   onLogin: () => void
@@ -197,7 +198,13 @@ export function LoginScreen({ onLogin, onSwitchToSignup, language, onLanguageCha
               </p>
             </div>
 
-            <div className="pt-4 border-t border-border">
+            <div className="pt-4 border-t border-border space-y-3">
+              <Link href="/docs">
+                <Button variant="outline" size="sm" className="w-full gap-2">
+                  <BookOpen className="w-4 h-4" />
+                  {t.viewDocs}
+                </Button>
+              </Link>
               <p className="text-xs text-muted-foreground text-center">
                 🔒 {t.supabaseReady}
                 <br />
