@@ -1,1 +1,0 @@
-# flutter-widget-gen-tool
