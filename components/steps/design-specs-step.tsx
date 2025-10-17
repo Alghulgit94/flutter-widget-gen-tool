@@ -15,6 +15,8 @@ const APP_COLORS = [
   "AppColors.outline",
   "AppColors.error",
   "AppColors.success",
+  "Colors.white",
+  "Colors.black"
 ]
 
 const APP_TYPOGRAPHY = [

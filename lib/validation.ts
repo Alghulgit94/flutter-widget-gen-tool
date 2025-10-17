@@ -32,7 +32,7 @@ export function validateStep(stepId: number, data: ComponentData): StepValidatio
       validation.requiredFields = ["colors", "typography", "dimensions"]
       if (!data.colors.background?.trim()) validation.missingFields.push("colors.background")
       if (!data.typography.primaryText?.trim()) validation.missingFields.push("typography.primaryText")
-      if (!data.dimensions.height?.trim()) validation.missingFields.push("dimensions.height")
+      if (!data.dimensions.padding?.trim()) validation.missingFields.push("dimensions.padding")
       break
 
     case 4: // Component API
