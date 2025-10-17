@@ -43,15 +43,25 @@ export function ComponentAPIStep({ data, updateData, quickStartMode }: Component
   const t = useTranslation(language)
   const [mode, setMode] = useState<"builder" | "code">("builder")
 
+  // Initialize componentParameters if it doesn't exist (for backwards compatibility)
+  useEffect(() => {
+    if (!data.componentParameters) {
+      updateData({ componentParameters: [] })
+    }
+  }, [])
+
+  // Ensure componentParameters is always an array
+  const parameters = data.componentParameters || []
+
   // Sync generated code when parameters change
   useEffect(() => {
-    if (mode === "builder" && data.componentParameters.length > 0) {
-      const generatedCode = generateDartClass(data.componentName, data.componentParameters)
+    if (mode === "builder" && parameters.length > 0) {
+      const generatedCode = generateDartClass(data.componentName, parameters)
       if (generatedCode !== data.componentAPI) {
         updateData({ componentAPI: generatedCode })
       }
     }
-  }, [data.componentParameters, data.componentName, mode])
+  }, [parameters, data.componentName, mode])
 
   const addParameter = () => {
     const newParam: ComponentParameter = {
@@ -63,16 +73,16 @@ export function ComponentAPIStep({ data, updateData, quickStartMode }: Component
       defaultValue: "",
       description: "",
     }
-    updateData({ componentParameters: [...data.componentParameters, newParam] })
+    updateData({ componentParameters: [...parameters, newParam] })
   }
 
   const updateParameter = (id: string, updates: Partial<ComponentParameter>) => {
-    const updated = data.componentParameters.map((p) => (p.id === id ? { ...p, ...updates } : p))
+    const updated = parameters.map((p) => (p.id === id ? { ...p, ...updates } : p))
     updateData({ componentParameters: updated })
   }
 
   const removeParameter = (id: string) => {
-    updateData({ componentParameters: data.componentParameters.filter((p) => p.id !== id) })
+    updateData({ componentParameters: parameters.filter((p) => p.id !== id) })
   }
 
   return (
@@ -108,7 +118,7 @@ export function ComponentAPIStep({ data, updateData, quickStartMode }: Component
         {mode === "builder" ? (
           <div className="space-y-4">
             {/* Parameter List */}
-            {data.componentParameters.length === 0 ? (
+            {parameters.length === 0 ? (
               <Card className="p-8 text-center bg-muted/20">
                 <p className="text-sm text-muted-foreground mb-4">{t.componentAPI.noParameters}</p>
                 <Button type="button" onClick={addParameter} size="sm" className="gap-2">
@@ -119,7 +129,7 @@ export function ComponentAPIStep({ data, updateData, quickStartMode }: Component
             ) : (
               <>
                 <div className="space-y-3">
-                  {data.componentParameters.map((param, index) => (
+                  {parameters.map((param, index) => (
                     <Card key={param.id} className="p-4">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {/* Parameter Name */}
@@ -220,11 +230,11 @@ export function ComponentAPIStep({ data, updateData, quickStartMode }: Component
             )}
 
             {/* Generated Code Preview */}
-            {data.componentParameters.length > 0 && (
+            {parameters.length > 0 && (
               <div className="mt-4">
                 <Label className="text-xs font-semibold mb-2 block">{t.componentAPI.generatedCode}</Label>
                 <Textarea
-                  value={generateDartClass(data.componentName, data.componentParameters)}
+                  value={generateDartClass(data.componentName, parameters)}
                   readOnly
                   rows={quickStartMode ? 12 : 18}
                   className="font-mono text-xs bg-muted/50"

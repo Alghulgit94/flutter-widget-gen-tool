@@ -71,7 +71,12 @@ export function ComponentForm({ onDataChange, onValidationChange, translations }
     const saved = localStorage.getItem("flutter-component-data")
     if (saved) {
       try {
-        setFormData(JSON.parse(saved))
+        const parsedData = JSON.parse(saved)
+        // Migration: Add componentParameters if it doesn't exist
+        if (!parsedData.componentParameters) {
+          parsedData.componentParameters = []
+        }
+        setFormData(parsedData)
       } catch (e) {
         console.error("[v0] Failed to parse saved data:", e)
       }
