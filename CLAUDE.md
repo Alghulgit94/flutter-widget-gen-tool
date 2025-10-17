@@ -196,7 +196,7 @@ Uses shadcn/ui components (in `components/ui/`):
 
 ### Authentication System
 - **JWT Tokens**: Generated with `jose` library (7-day expiration)
-- **Password Security**: Bcrypt hashing with 12 salt rounds
+- **Password Security**: Bcryptjs hashing with 12 salt rounds
 - **Cookie Management**: HttpOnly, Secure (prod), SameSite=Lax
 - **Session Check**: `/api/auth/me` verifies current user
 - **Login Flow**: Email/password → JWT → httpOnly cookie
@@ -204,7 +204,7 @@ Uses shadcn/ui components (in `components/ui/`):
 
 ### Security Best Practices Implemented
 - ✅ Parameterized queries (SQL injection prevention)
-- ✅ Password hashing (bcrypt with salt rounds)
+- ✅ Password hashing (bcryptjs with salt rounds)
 - ✅ HttpOnly cookies (XSS prevention)
 - ✅ Input validation (email format, password strength)
 - ✅ JWT expiration (7-day max)

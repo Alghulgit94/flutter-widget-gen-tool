@@ -109,7 +109,7 @@ flutter-component-generator/
 - **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript
 - **Database**: CockroachDB (PostgreSQL-compatible)
-- **Authentication**: JWT with jose + bcrypt
+- **Authentication**: JWT with jose + bcryptjs
 - **UI Components**: shadcn/ui (Radix UI + Tailwind CSS)
 - **State Management**: React hooks + Context API
 - **Styling**: Tailwind CSS
@@ -161,7 +161,7 @@ flutter-component-generator/
 - ✅ Generate a strong JWT_SECRET for production (use a password generator)
 - ✅ CockroachDB SSL is enabled and required
 - ✅ All API routes use parameterized queries (SQL injection protection)
-- ✅ Passwords are hashed with bcrypt (salt rounds: 12)
+- ✅ Passwords are hashed with bcryptjs (salt rounds: 12)
 - ✅ JWT tokens expire after 7 days
 - ✅ Cookies are httpOnly and secure in production
 
@@ -183,7 +183,7 @@ flutter-component-generator/
 ## 🔒 Security Features
 
 - ✅ JWT-based authentication
-- ✅ Password hashing with bcrypt (12 salt rounds)
+- ✅ Password hashing with bcryptjs (12 salt rounds)
 - ✅ HttpOnly cookies (XSS protection)
 - ✅ CSRF protection with SameSite cookies
 - ✅ Parameterized SQL queries (SQL injection protection)

@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt"
+import bcryptjs from "bcryptjs"
 import { SignJWT, jwtVerify } from "jose"
 import { cookies } from "next/headers"
 import type { SessionPayload } from "./auth-types"
@@ -10,12 +10,12 @@ const SALT_ROUNDS = 12 // Industry standard for bcrypt
 
 // Password hashing
 export async function hashPassword(password: string): Promise<string> {
-  return bcrypt.hash(password, SALT_ROUNDS)
+  return bcryptjs.hash(password, SALT_ROUNDS)
 }
 
 // Password verification
 export async function verifyPassword(password: string, hash: string): Promise<boolean> {
-  return bcrypt.compare(password, hash)
+  return bcryptjs.compare(password, hash)
 }
 
 // Generate JWT token
