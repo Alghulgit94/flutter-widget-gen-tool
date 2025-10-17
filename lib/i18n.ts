@@ -73,6 +73,7 @@ export const translations = {
       visualReference: "Visual Reference",
       visualReferencePlaceholder: "Describe the component layout, visual hierarchy, and key visual elements...",
       visualReferenceHint: "Provide Figma link or detailed description",
+      visualReferenceDisclaimer: "Figma link, lo-fi & hi-fi mockups upload preview will be available in future updates.",
       required: "*",
     },
     // Variants & States Step
@@ -324,6 +325,7 @@ export const translations = {
       visualReference: "Referencia Visual",
       visualReferencePlaceholder: "Describe el diseño del componente, jerarquía visual y elementos visuales clave...",
       visualReferenceHint: "Proporciona enlace de Figma o descripción detallada",
+      visualReferenceDisclaimer: "Enlace de Figma, carga de mockups lo-fi y hi-fi estarán disponibles en futuras actualizaciones.",
       required: "*",
     },
     // Variants & States Step

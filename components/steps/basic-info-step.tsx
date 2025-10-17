@@ -95,6 +95,11 @@ export function BasicInfoStep({ data, updateData, quickStartMode }: BasicInfoSte
             rows={4}
           />
           <p className="text-xs text-muted-foreground">{t.basicInfo.visualReferenceHint}</p>
+          <div className="mt-2 p-3 bg-muted/50 border border-border rounded-md">
+            <p className="text-xs text-muted-foreground italic">
+              💡 {t.basicInfo.visualReferenceDisclaimer}
+            </p>
+          </div>
         </div>
       )}
     </div>
