@@ -12,6 +12,14 @@ export const translations = {
       signupError: "Failed to create account",
       networkError: "Network error. Please try again.",
     },
+    // Main App
+    app: {
+      newComponent: "New Component",
+      newComponentConfirm: "Start a new component?",
+      newComponentDesc: "This will clear all current data and start fresh. Your current work will be lost unless you export it first.",
+      continueEditing: "Continue Editing",
+      startNew: "Start New",
+    },
     // Login Screen
     login: {
       title: "Flutter Component Generator",
@@ -263,6 +271,14 @@ export const translations = {
       signupSuccess: "Cuenta creada correctamente",
       signupError: "Error al crear la cuenta",
       networkError: "Error de red. Por favor, inténtalo de nuevo.",
+    },
+    // Main App
+    app: {
+      newComponent: "Nuevo Componente",
+      newComponentConfirm: "¿Iniciar un nuevo componente?",
+      newComponentDesc: "Esto borrará todos los datos actuales y comenzará desde cero. Tu trabajo actual se perderá a menos que lo exportes primero.",
+      continueEditing: "Continuar Editando",
+      startNew: "Iniciar Nuevo",
     },
     // Login Screen
     login: {

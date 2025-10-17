@@ -6,12 +6,22 @@ import { MarkdownPreview } from "@/components/markdown-preview"
 import { LoginScreen } from "@/components/login-screen"
 import { SignupScreen } from "@/components/signup-screen"
 import { Button } from "@/components/ui/button"
-import { FileDown, Sparkles, LogOut } from "lucide-react"
+import { FileDown, Sparkles, LogOut, FilePlus } from "lucide-react"
 import { generateMarkdown } from "@/lib/markdown-generator"
 import type { ComponentData } from "@/lib/types"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { useLanguage } from "@/lib/language-context"
 import { useTranslation } from "@/lib/i18n"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
 
 export default function Home() {
   const { language, setLanguage } = useLanguage()
@@ -23,6 +33,8 @@ export default function Home() {
   const [componentData, setComponentData] = useState<ComponentData | null>(null)
   const [showPreview, setShowPreview] = useState(false)
   const [allStepsComplete, setAllStepsComplete] = useState(false)
+  const [showNewComponentDialog, setShowNewComponentDialog] = useState(false)
+  const [resetTrigger, setResetTrigger] = useState(0)
 
   // Check authentication on mount
   useEffect(() => {
@@ -76,6 +88,18 @@ export default function Home() {
     }
   }
 
+  const handleNewComponent = () => {
+    setShowNewComponentDialog(true)
+  }
+
+  const confirmNewComponent = () => {
+    // Clear localStorage
+    localStorage.removeItem("flutter-component-data")
+    // Trigger reset by incrementing the key
+    setResetTrigger((prev) => prev + 1)
+    setShowNewComponentDialog(false)
+  }
+
   // Show loading state while checking authentication
   if (isCheckingAuth) {
     return (
@@ -127,6 +151,10 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-2">
             <LanguageSwitcher currentLang={language} onLanguageChange={setLanguage} />
+            <Button variant="outline" size="sm" onClick={handleNewComponent} className="gap-2" title={translations.app.newComponent}>
+              <FilePlus className="w-4 h-4" />
+              <span className="hidden sm:inline">{translations.app.newComponent}</span>
+            </Button>
             <Button variant="outline" size="sm" onClick={() => setShowPreview(!showPreview)} className="hidden md:flex">
               {showPreview ? "Hide" : "Show"} Preview
             </Button>
@@ -151,6 +179,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className={showPreview ? "lg:block" : "col-span-2"}>
             <ComponentForm
+              key={resetTrigger}
               onDataChange={handleDataChange}
               onValidationChange={handleValidationChange}
               translations={translations}
@@ -164,6 +193,20 @@ export default function Home() {
           )}
         </div>
       </div>
+
+      {/* New Component Confirmation Dialog */}
+      <AlertDialog open={showNewComponentDialog} onOpenChange={setShowNewComponentDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{translations.app.newComponentConfirm}</AlertDialogTitle>
+            <AlertDialogDescription>{translations.app.newComponentDesc}</AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{translations.app.continueEditing}</AlertDialogCancel>
+            <AlertDialogAction onClick={confirmNewComponent}>{translations.app.startNew}</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }
