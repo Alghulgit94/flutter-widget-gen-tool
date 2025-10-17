@@ -267,9 +267,9 @@ export function SignupScreen({
                 </Button>
               </Link>
               <p className="text-xs text-muted-foreground text-center">
-                🔒 {t.supabaseReady}
+                🔒 <span className="font-medium text-foreground">{t.secureAuth}</span>
                 <br />
-                <span className="text-[10px]">{t.authPrepared}</span>
+                <span className="text-[10px]">{t.authDescription}</span>
               </p>
             </div>
           </div>
