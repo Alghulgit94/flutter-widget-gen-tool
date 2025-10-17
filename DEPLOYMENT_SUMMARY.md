@@ -143,7 +143,7 @@ Follow `DEPLOYMENT.md` for step-by-step instructions with explanations.
 ### For Vercel Dashboard:
 
 ```env
-DATABASE_URL=postgresql://omar:Ua0YK1or0nHcang-ObDuiA@cluster-flutter-ui-tool-9631.jxf.gcp-europe-west3.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full
+DATABASE_URL=postgresql://username:password@your-cluster.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full
 
 JWT_SECRET=[GENERATE NEW - 32+ characters]
 

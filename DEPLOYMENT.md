@@ -73,7 +73,7 @@ Click **"Environment Variables"** section and add:
 
 | Name | Value | Note |
 |------|-------|------|
-| `DATABASE_URL` | `postgresql://omar:Ua0YK1or0nHcang-ObDuiA@cluster-flutter-ui-tool-9631.jxf.gcp-europe-west3.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full` | Your CockroachDB connection string |
+| `DATABASE_URL` | `postgresql://username:password@your-cluster.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full` | Your CockroachDB connection string |
 | `JWT_SECRET` | `[GENERATE A NEW SECRET]` | Use a password generator - 32+ chars |
 | `NODE_ENV` | `production` | Sets production mode |
 
