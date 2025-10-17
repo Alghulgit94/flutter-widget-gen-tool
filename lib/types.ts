@@ -38,6 +38,15 @@ export interface ComponentData {
     trigger: string
   }
   componentAPI: string
+  componentParameters: Array<{
+    id: string
+    name: string
+    type: string
+    isRequired: boolean
+    isNullable: boolean
+    defaultValue: string
+    description: string
+  }>
   behavior: string
   responsiveBehavior: string
   accessibility: string[]

@@ -41,6 +41,7 @@ const INITIAL_FORM_DATA: ComponentData = {
   icons: { iconName: "", iconPosition: "", iconColor: "" },
   animations: { animationType: "", duration: "", curve: "", trigger: "" },
   componentAPI: "",
+  componentParameters: [],
   behavior: "",
   responsiveBehavior: "",
   accessibility: [],
