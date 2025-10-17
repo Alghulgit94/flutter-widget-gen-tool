@@ -58,40 +58,75 @@ export default function DocsPage() {
               <p className="text-muted-foreground">{t.step1Desc}</p>
             </Card>
 
-            {/* Step 2 */}
+            {/* Step 2 - Expanded */}
             <Card className="p-6 bg-card border-border">
               <h4 className="text-lg font-semibold text-foreground mb-2">{t.step2Title}</h4>
-              <p className="text-muted-foreground mb-4">{t.step2Desc}</p>
-              <ul className="space-y-2 ml-4">
-                <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{t.step2Item1}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{t.step2Item2}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{t.step2Item3}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{t.step2Item4}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{t.step2Item5}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{t.step2Item6}</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{t.step2Item7}</span>
-                </li>
-              </ul>
+              <p className="text-muted-foreground mb-6">{t.step2Desc}</p>
+
+              <div className="space-y-5">
+                {/* Step 2.1 */}
+                <div className="pl-4 border-l-2 border-primary/30">
+                  <h5 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold">1</span>
+                    {t.step2Item1Title}
+                  </h5>
+                  <p className="text-sm text-muted-foreground">{t.step2Item1Desc}</p>
+                </div>
+
+                {/* Step 2.2 */}
+                <div className="pl-4 border-l-2 border-primary/30">
+                  <h5 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold">2</span>
+                    {t.step2Item2Title}
+                  </h5>
+                  <p className="text-sm text-muted-foreground">{t.step2Item2Desc}</p>
+                </div>
+
+                {/* Step 2.3 */}
+                <div className="pl-4 border-l-2 border-primary/30">
+                  <h5 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold">3</span>
+                    {t.step2Item3Title}
+                  </h5>
+                  <p className="text-sm text-muted-foreground">{t.step2Item3Desc}</p>
+                </div>
+
+                {/* Step 2.4 */}
+                <div className="pl-4 border-l-2 border-primary/30">
+                  <h5 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold">4</span>
+                    {t.step2Item4Title}
+                  </h5>
+                  <p className="text-sm text-muted-foreground">{t.step2Item4Desc}</p>
+                </div>
+
+                {/* Step 2.5 */}
+                <div className="pl-4 border-l-2 border-primary/30">
+                  <h5 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold">5</span>
+                    {t.step2Item5Title}
+                  </h5>
+                  <p className="text-sm text-muted-foreground">{t.step2Item5Desc}</p>
+                </div>
+
+                {/* Step 2.6 */}
+                <div className="pl-4 border-l-2 border-primary/30">
+                  <h5 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold">6</span>
+                    {t.step2Item6Title}
+                  </h5>
+                  <p className="text-sm text-muted-foreground">{t.step2Item6Desc}</p>
+                </div>
+
+                {/* Step 2.7 */}
+                <div className="pl-4 border-l-2 border-primary/30">
+                  <h5 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold">7</span>
+                    {t.step2Item7Title}
+                  </h5>
+                  <p className="text-sm text-muted-foreground">{t.step2Item7Desc}</p>
+                </div>
+              </div>
             </Card>
 
             {/* Step 3 */}
